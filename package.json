@@ -1,0 +1,12 @@
+{
+  "name": "lean-crowd-manifest-repo",
+  "private": true,
+  "scripts": {
+    "dev": "npx --prefix astro astro dev --host 0.0.0.0 --root astro",
+    "build": "npx --prefix astro astro build --root astro",
+    "preview": "npx --prefix astro astro preview --host 0.0.0.0 --root astro",
+    "start": "npm run dev",
+    "astro": "cd astro && npx astro",
+    "install:astro": "npm --prefix astro install"
+  }
+}

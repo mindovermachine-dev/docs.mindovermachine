@@ -3,6 +3,12 @@ import starlight from '@astrojs/starlight';
 
 // https://astro.build/config
 export default defineConfig({
+  vite: {
+    server: {
+      host: true,
+      allowedHosts: true,
+    },
+  },
   integrations: [
     starlight({
       title: 'Lean Crowd Manifest',

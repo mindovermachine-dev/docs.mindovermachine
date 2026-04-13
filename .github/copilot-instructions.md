@@ -10,9 +10,11 @@ The site is built with [Astro Starlight](https://starlight.astro.build/) and dep
 
 ```
 .
-├── src/                    # Astro project root
+├── package.json            # Repo-level scripts (dev/build/preview) and tooling
+├── astro/                  # Astro app root
 │   ├── astro.config.mjs    # Astro + Starlight configuration
-│   ├── package.json
+│   ├── package.json        # Astro app dependencies
+│   ├── package-lock.json
 │   ├── tsconfig.json
 │   ├── public/             # Static assets (favicon, etc.)
 │   └── src/
@@ -34,22 +36,24 @@ The site is built with [Astro Starlight](https://starlight.astro.build/) and dep
 
 ## Development
 
-All Astro commands are run from inside the `src/` directory:
+Use repo-root scripts for normal development:
 
-| Command            | Action                                       |
-| :----------------- | :------------------------------------------- |
-| `npm install`      | Install dependencies                         |
-| `npm run dev`      | Start local dev server at `localhost:4321`   |
-| `npm run build`    | Build the production site to `./dist/`       |
-| `npm run preview`  | Preview the build locally before deploying   |
+| Command                 | Action                                                             |
+| :---------------------- | :----------------------------------------------------------------- |
+| `npm run install:astro` | Install Astro app dependencies into `astro/node_modules`           |
+| `npm run dev`           | Start local dev server (binds host `0.0.0.0`, default port `4321`) |
+| `npm run build`         | Build production site to `astro/dist/`                             |
+| `npm run preview`       | Preview built site with host binding for devcontainer forwarding   |
+
+Direct Astro CLI usage is also supported from repo root via `npm run astro -- <args>`.
 
 ## Content Guidelines
 
-- All documentation pages live under `src/src/content/docs/`
+- All documentation pages live under `astro/src/content/docs/`
 - Pages use Markdown (`.md`) or MDX (`.mdx`) with YAML frontmatter
 - Required frontmatter fields: `title`, `description`
 - The home page (`index.mdx`) uses `template: splash` for a hero layout
-- Sidebar navigation is configured in `src/astro.config.mjs`
+- Sidebar navigation is configured in `astro/astro.config.mjs`
 
 ## Coding Conventions
 

@@ -1,6 +1,7 @@
 name: Stage
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
@@ -22,11 +23,10 @@ jobs:
         with:
           node-version: 22
           cache: npm
-          cache-dependency-path: src/package-lock.json
+          cache-dependency-path: astro/package-lock.json
 
       - name: Install dependencies
-        run: npm install
-        working-directory: src
+        run: npm run install:astro
 
       - name: Configure Pages
         id: pages
@@ -34,12 +34,11 @@ jobs:
 
       - name: Build with Astro
         run: npm run build -- --site "${{ steps.pages.outputs.origin }}" --base "${{ steps.pages.outputs.base_path }}"
-        working-directory: src
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: src/dist
+          path: astro/dist
 
   deploy:
     name: Deploy to GitHub Pages

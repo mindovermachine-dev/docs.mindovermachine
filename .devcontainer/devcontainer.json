@@ -8,7 +8,7 @@
       "onAutoForward": "notify"
     }
   },
-  "postCreateCommand": "cd src && npm install",
+  "postCreateCommand": "npm run install:astro",
   "customizations": {
     "vscode": {
       "extensions": [
