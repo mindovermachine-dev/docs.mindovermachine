@@ -8,5 +8,10 @@
     "start": "npm run dev",
     "astro": "cd astro && npx astro",
     "install:astro": "npm --prefix astro install"
+  },
+  "dependencies": {
+    "cspell": "^6.28.0",
+    "prettier": "^2.8.8",
+    "markdownlint-cli2": "^0.11.0"
   }
 }

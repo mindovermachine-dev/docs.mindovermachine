@@ -8,7 +8,14 @@
       "onAutoForward": "notify"
     }
   },
-  "postCreateCommand": "npm run install:astro",
+  "postCreateCommand": "gh ext install devx-cafe/gh-insitu && gh insitu run post-create",
+  "features": {
+		"ghcr.io/devcontainers/features/common-utils:2": {},
+		"ghcr.io/devcontainers/features/github-cli:1": {},
+		"ghcr.io/devcontainers-extra/features/npm-packages:1": {
+			"packages": ["cspell", "markdownlint-cli2", "prettier", "@cspell/dict-da-dk"]
+		}
+	},
   "customizations": {
     "vscode": {
       "extensions": [
@@ -16,7 +23,10 @@
         "github.copilot",
         "github.copilot-chat",
         "esbenp.prettier-vscode",
-        "bradlc.vscode-tailwindcss"
+        "bradlc.vscode-tailwindcss",
+        "DavidAnson.vscode-markdownlint",
+        "streetsidesoftware.code-spell-checker",
+        "streetsidesoftware.code-spell-checker-danish"
       ],
       "settings": {
         "editor.defaultFormatter": "esbenp.prettier-vscode",
@@ -26,5 +36,11 @@
         }
       }
     }
-  }
+  },
+	"mounts": [
+		"source=${localEnv:HOME},target=/localhome,type=bind,consistency=cached"
+	],
+	"remoteEnv": {
+		"GH_TOKEN": "${localEnv:GH_TOKEN}"
+	}
 }

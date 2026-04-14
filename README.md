@@ -1,2 +1,3 @@
-# lean-crowd-manifest
+# lean CROWD manifest
+
 Ideas and initiative

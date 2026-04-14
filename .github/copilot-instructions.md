@@ -8,7 +8,7 @@ The site is built with [Astro Starlight](https://starlight.astro.build/) and dep
 
 ## Repository Structure
 
-```
+```txt
 .
 ├── package.json            # Repo-level scripts (dev/build/preview) and tooling
 ├── astro/                  # Astro app root

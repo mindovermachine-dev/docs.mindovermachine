@@ -17,3 +17,10 @@ npm-debug.log*
 
 # macOS
 .DS_Store
+
+# takt
+.tt_cache
+
+# General
+/tmp
+/temp
