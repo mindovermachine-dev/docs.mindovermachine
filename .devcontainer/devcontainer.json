@@ -27,7 +27,8 @@
         "DavidAnson.vscode-markdownlint",
         "streetsidesoftware.code-spell-checker",
         "streetsidesoftware.code-spell-checker-danish",
-        "unifiedjs.vscode-mdx"
+        "unifiedjs.vscode-mdx",
+        "mhutchie.git-graph"
       ],
       "settings": {
         "editor.defaultFormatter": "esbenp.prettier-vscode",
