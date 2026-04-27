@@ -5,7 +5,7 @@ import { collectFrontmatterRedirects } from "./src/config/frontmatter-redirects.
 
 const frontmatterRedirects = collectFrontmatterRedirects({
   docsRoot: new URL("./src/content/docs", import.meta.url),
-  localePrefixes: ["da"],
+  localePrefixes: ["da", "en"],
   onConflict: ({ source, existing, incoming, filePath }) => {
     console.warn(
       `[redirect-from] Skipping conflicting source '${source}' from '${filePath}'. Already mapped to '${existing}' and ignored '${incoming}'.`
@@ -35,17 +35,17 @@ export default defineConfig({
   },
   integrations: [
     starlight({
-      title: "Mind over Machine Manifest",
+      title: "Mind over Machine",
       customCss: ["./src/styles/custom.scss"],
-      defaultLocale: "root",
+      defaultLocale: "da",
       locales: {
-        root: {
-          label: "English",
-          lang: "en",
-        },
         da: {
           label: "Dansk",
           lang: "da",
+        },
+        en: {
+          label: "English",
+          lang: "en",
         },
       },
       social: [
@@ -76,6 +76,11 @@ export default defineConfig({
           label: "About Us",
           translations: { da: "Om Os" },
           items: [
+            {
+              label: "Contact",
+              translations: { da: "Kontakt" },
+              slug: "about/contact",
+            },
             {
               label: "Founder's Story",
               translations: { da: "Founder's Story" },
@@ -128,5 +133,8 @@ export default defineConfig({
       ],
     }),
   ],
-  redirects: frontmatterRedirects,
+  redirects: {
+    '/': '/da/',
+    ...frontmatterRedirects,
+  },
 });

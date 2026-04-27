@@ -5,6 +5,7 @@ import { extname, join } from "node:path";
 const LINKINATOR_ARGS = [
   ".",
   "/da/",
+  "/en/",
   "--server-root",
   "astro/dist",
   "--recurse",

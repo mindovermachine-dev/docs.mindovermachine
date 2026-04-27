@@ -1,0 +1,79 @@
+---
+title: How We Work
+description: Standards are a prerequisite for work in the laboratory
+redirect-from: /en/methodology/
+---
+
+<kicker>"_{frontmatter.description}_"</kicker>
+
+## No Estimates
+
+No Estimates is a movement within software development that encourages dropping traditional estimation methods and instead focusing on delivering value continuously. It is about avoiding the many pitfalls of estimation — inaccurate timelines, overoptimism, time wasted guessing about the future, _featureitis_, assumptions about user needs that don't hold, and so on.
+
+Rather than spending time estimating, No Estimates encourages focusing on delivering small, incremental improvements and features that can be released quickly, automatically, and frequently. It is about creating a culture in which an exploratory approach to software development is acceptable, rather than a planning-oriented one.
+
+No Estimates stands on the shoulders of eXtreme Programming, pair and mob programming, and Lean Software Development, and it is part of the regenerative approach to software development that we work from in our laboratory.
+
+## Trunk-Based Development
+
+Trunk-based development is a software development practice in which all developers frequently (daily) deliver their work to a shared branch in Git — typically `main`. All work is quality-checked and tested continuously at the source, meaning on short-lived development branches, and there are no long-lived parallel feature branches.
+
+Trunk is kept in a state that is _always ready to release_, and this will typically happen automatically to a staging environment so that prospective clients and end-users can view and test the ongoing work, allowing us to receive feedback from reality as quickly as possible and use it to improve our understanding and our software.
+
+Trunk-based development is a fundamental prerequisite for _Continuous Delivery_, which is an important part of the regenerative approach.
+
+## Shift Left
+
+Shift Left is a software development practice in which quality control and testing happen as early as possible in the development process — ideally directly at the source. Software developers as well as AI agents must have access to execute all the quality checks and tests that the software will encounter before being approved for production, directly in their development environment and as often as they need, in order to work effectively and deliver high-quality software.
+
+Shift Left is an important part of the regenerative approach because it allows us to catch and fix problems as early as possible, before they reach production. It also allows us to receive feedback from reality as quickly as possible and use it to improve our understanding and our software.
+
+Shift Left is an ambitious approach that depends on other disciplines — Infrastructure as Code, stateful testing, versioning of test data, often synthetically generated test data, and so on — in order to function effectively.
+
+## Participatory Design
+
+Participatory design is a software development practice in which end-users are actively involved in the design process and their feedback and input form a central part of the development process. It is about creating a culture in which end-users see themselves as part of the development team, and in which their needs and wishes are at the center of everything we do.
+
+For the client, it may feel like a hidden additional cost to spend time getting involved or simply making themselves available to the development process — end-user engagement will draw on time from their everyday activities — but this is an investment that within regenerative software development is considered necessary. And it pays back many times over, because it enables us to deliver software that meets end-user needs very precisely, much sooner.
+
+## Collaboration with AI Agents
+
+We see AI agents as an important part of our laboratory, and we are actively working to integrate them into our development process. AI agents can help us automate and execute many of the tasks associated with software development — such as code generation, testing, documentation, infrastructure, research, and so on. This allows us to focus on the more dialogue-based and creative aspects of software development that cannot yet be automated, and it also allows us to deliver high-quality software faster and more effectively.
+
+We deliberately write "collaboration with AI agents" rather than "automation with AI." _Collaboration_ is important because otherwise, as AI agents become rapidly more and more autonomous, we see an imminent risk of AI agents _taking over_ the work.
+
+In practice, this means we must establish very strict requirements and standards in our development environments for how AI agents may interact with our software and our development process. Our other principles — such as _shift left_ and _trunk-based development_ — must not be sacrificed in this collaboration. On the contrary, agents must contribute code under the same strict quality controls that developers use. And because agents can generate very large amounts of code in a very short time, often of varying quality, this means that the developers' role in the collaboration with AI agents shifts fundamentally.
+
+The humans in this collaboration move from being _developers_ themselves to increasingly becoming a combination of _translators of end-user needs_ into specifications for AI agents and, immediately afterward, _quality controllers_ ensuring that the code AI agents generate meets our quality standards and aligns with our development principles. And to the extent that it does not, humans should rather than correcting, rewriting, and finishing the agents' code instead correct, rewrite, and complete the ever-growing body of automated quality controls that take place closer and closer to the source — that is, within the containerized development environment itself.
+
+These are entirely new roles for humans in the development process.
+
+## Individually Releasable Components
+
+_Individually releasable components_ is a design principle within software architecture in which the software is divided into small, independent components, each of which can be developed, tested, and released separately. Often, one Git repository equals one standalone component.
+
+Individually releasable components frequently stand in contrast to their counterpart — monolithic applications — in which all functions and components are tightly integrated, often in a single Git repository that cannot be released separately but conversely does not require explicit coordination of internal dependencies.
+
+There are advantages and disadvantages to both approaches, which is why both exist in different contexts. But within the regenerative approach, our assumption is that individually releasable components are the most effective way of working in the long run — because they produce the most generic and individually configurable approaches, ensure the highest degree of quality control directly at the source, and overall offer the highest degree of reuse and flexibility.
+
+Within Open Source, individually releasable components are the dominant paradigm, supported by another central principle — Semantic Versioning.
+
+## Open Source
+
+Open Source is a software development practice in which the source code of the software is publicly available and in which everyone has the right to use, modify, and distribute the software, under various conditions dictated by the license. It is about creating a culture in which software is a common good that everyone can contribute to and benefit from, and in which collaboration and sharing are at the center of everything we do.
+
+Open Source is an important part of the regenerative approach because it allows us to share our work with the world, and it also allows us to receive feedback and contributions from others who can help us improve our software and our understanding. It also allows us to build a community around our work in which everyone can help shape and develop it.
+
+Open Source is one of humanity's most successful and regenerative models of collaboration — by some measures an even greater success than democracy itself — and it is an important part of our vision for a regenerative software development community. We believe that by making our work Open Source, we can contribute to creating a fairer, more sustainable, and more innovative software industry capable of solving the complex challenges the world faces today.
+
+Example: It is estimated that more than 95% of all "Things" (including data centres and your refrigerator) connected to the internet are powered by some variant of Linux, which is an Open Source operating system. Our society as we know it today could not exist without Open Source. It is a concept that binds people together more strongly than the UN, human rights, trade agreements, all the world's religions, democracy, or any other concept we know of.
+
+Open Source will always be threatened by short-term profit interests, and it is a central principle within the regenerative approach to contribute to Open Source.
+
+## Community of Practice
+
+Our Community of Practice is an important part of our laboratory — a space where we can share our knowledge, experiences, and challenges with one another, and where we can learn from each other and support each other in our work. It is about creating a culture in which everyone feels welcome and included, and in which everyone has the opportunity to contribute and learn.
+
+It is particularly an important tool for involving _learners_ and academia in our work, and for fulfilling our commitment to engaging the coming generations of software developers.
+
+Our Community of Practice stands on the shoulders of our principle of contributing to Open Source, which directly supports _legitimate peripheral participation_ through full and unconditional transparency.
