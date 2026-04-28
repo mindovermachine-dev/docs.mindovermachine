@@ -6,6 +6,8 @@ const LINKINATOR_ARGS = [
   ".",
   "/da/",
   "/en/",
+  "--config",
+  "linkinator.config.json",
   "--server-root",
   "astro/dist",
   "--recurse",
