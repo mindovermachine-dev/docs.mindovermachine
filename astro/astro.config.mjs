@@ -8,7 +8,7 @@ const frontmatterRedirects = collectFrontmatterRedirects({
   localePrefixes: ["da", "en"],
   onConflict: ({ source, existing, incoming, filePath }) => {
     console.warn(
-      `[redirect-from] Skipping conflicting source '${source}' from '${filePath}'. Already mapped to '${existing}' and ignored '${incoming}'.`
+      `[redirect-from] Skipping conflicting source '${source}' from '${filePath}'. Already mapped to '${existing}' and ignored '${incoming}'.`,
     );
   },
 });
@@ -36,9 +36,9 @@ export default defineConfig({
   integrations: [
     starlight({
       title: "Regenerative Software Foundation",
-      favicon: '/mom-favicon.ico',
+      favicon: "/mom-favicon.ico",
       logo: {
-        src: './src/assets/mom-logo-text-transparent.png',
+        src: "./src/assets/mom-logo-text-transparent.png",
       },
       customCss: ["./src/styles/custom.scss"],
       defaultLocale: "da",
@@ -100,11 +100,41 @@ export default defineConfig({
               label: "The Three Pillars",
               translations: { da: "De tre Søjler" },
               slug: "governance/three-pillars",
-            }, 
+            },
             {
-              label: "Regenerative Charter",
-              translations: { da: "MioMa Charter" },
+              label: "The Regenerative Charter",
+              translations: { da: "Det regenerative Charter" },
               slug: "governance/charter",
+            },
+            {
+              label: "Statutes",
+              translations: { da: "Vedtægter" },
+              slug: "governance/statutes",
+            },
+            {
+              label: "Rules of Procedure",
+              translations: { da: "Forretningsorden" },
+              slug: "governance/rules-of-procedure",
+            },
+            {
+              label: "Annual Cycle",
+              translations: { da: "Årshjul" },
+              slug: "governance/annual-cycle",
+            },
+            {
+              label: "Representative Council",
+              translations: { da: "Repræsentantskab" },
+              slug: "governance/representative-council",
+            },
+            {
+              label: "Instructions",
+              translations: { da: "Instrukser" },
+              slug: "governance/instructions",
+            },
+            {
+              label: "Ethical Assessment",
+              translations: { da: "Årlig etisk gennemgang" },
+              slug: "governance/ethical-assessment",
             },
           ],
         },
@@ -113,32 +143,37 @@ export default defineConfig({
           translations: { da: "Metoder" },
           items: [
             {
+              label: "Collaboration",
+              translations: { da: "Samarbejde" },
+              slug: "methodology/collaboration",
+            },
+            {
               label: "How We Work",
               translations: { da: "Sådan arbejder vi" },
               slug: "methodology/how-we-work",
             },
-//            {
-//              label: "The Toyota Way",
-//              translations: { da: "Toyota-vejen" },
-//              slug: "methodology/toyota-way",
-//            },
-//            {
-//              label: "Participatory Design",
-//              translations: { da: "Deltagende Design" },
-//              slug: "methodology/participatory-design",
-//            },
-//            {
-//              label: "Developer Experience (DevX)",
-//              translations: { da: "Udvikler Erfaring (DevX)" },
-//              slug: "methodology/devx",
-//            },
+            //            {
+            //              label: "The Toyota Way",
+            //              translations: { da: "Toyota-vejen" },
+            //              slug: "methodology/toyota-way",
+            //            },
+            //            {
+            //              label: "Participatory Design",
+            //              translations: { da: "Deltagende Design" },
+            //              slug: "methodology/participatory-design",
+            //            },
+            //            {
+            //              label: "Developer Experience (DevX)",
+            //              translations: { da: "Udvikler Erfaring (DevX)" },
+            //              slug: "methodology/devx",
+            //            },
           ],
         },
       ],
     }),
   ],
   redirects: {
-    '/': '/da/',
+    "/": "/da/",
     ...frontmatterRedirects,
   },
 });
