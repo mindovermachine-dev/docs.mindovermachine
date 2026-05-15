@@ -139,6 +139,11 @@ export default defineConfig({
               translations: { da: "Årlig etisk gennemgang" },
               slug: "governance/ethical-assessment",
             },
+            {
+              label: "Business Operations",
+              translations: { da: "Erhvervsdrift og økonomisk grundlag" },
+              slug: "governance/business-plan",
+            },
           ],
         },
         {
