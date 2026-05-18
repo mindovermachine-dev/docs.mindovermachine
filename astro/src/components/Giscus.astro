@@ -7,23 +7,38 @@ const { lang = 'en' } = Astro.props;
 ---
 
 <section class="giscus-container">
-  <script
-    is:inline
-    src="https://giscus.app/client.js"
-    data-repo="mindovermachine-dev/giscus-public"
-    data-repo-id="R_kgDOSOq5OQ"
-    data-category="docs.mindovermachine.dk"
-    data-category-id="DIC_kwDOSOq5Oc4C73LV"
-    data-mapping="pathname"
-    data-strict="0"
-    data-reactions-enabled="1"
-    data-emit-metadata="0"
-    data-input-position="bottom"
-    data-theme="preferred_color_scheme"
-    data-lang={lang}
-    crossorigin="anonymous"
-    async
-  ></script>
+  <div class="giscus-slot" data-giscus-slot data-lang={lang}></div>
+  <script is:inline>
+    (() => {
+      if (navigator.webdriver) {
+        return;
+      }
+
+      const slot = document.querySelector('[data-giscus-slot]');
+      if (!slot || slot.querySelector('script')) {
+        return;
+      }
+
+      const language = slot.dataset.lang || 'en';
+
+      const script = document.createElement('script');
+      script.src = 'https://giscus.app/client.js';
+      script.setAttribute('data-repo', 'mindovermachine-dev/giscus-public');
+      script.setAttribute('data-repo-id', 'R_kgDOSOq5OQ');
+      script.setAttribute('data-category', 'docs.mindovermachine.dk');
+      script.setAttribute('data-category-id', 'DIC_kwDOSOq5Oc4C73LV');
+      script.setAttribute('data-mapping', 'pathname');
+      script.setAttribute('data-strict', '0');
+      script.setAttribute('data-reactions-enabled', '1');
+      script.setAttribute('data-emit-metadata', '0');
+      script.setAttribute('data-input-position', 'bottom');
+      script.setAttribute('data-theme', 'preferred_color_scheme');
+      script.setAttribute('data-lang', language);
+      script.setAttribute('crossorigin', 'anonymous');
+      script.async = true;
+      slot.append(script);
+    })();
+  </script>
 </section>
 
 <style>
