@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-This is the source repository for **docs.mindovermachine** — the documentation website for **Regenerative Software Foundation** (Danish: _Fonden for Regenerativ Softwareudvikling_), a non-profit commercial foundation combining a think-tank and laboratory focused on long-term system thinking and regenerative software development.
+This is the source repository for **docs.mindovermachine** — the documentation website for **Mind over Machine, the Regenerative Software Foundation** (Danish: _Mind over Machine, Fonden for Regenerativ Softwareudvikling_), a non-profit commercial foundation combining a think-tank and laboratory focused on long-term system thinking and regenerative software development.
 
 - **Live site**: https://docs.mindovermachine.dk (custom domain via `CNAME`)
 - **Built with**: [Astro](https://astro.build/) 6.x + [Starlight](https://starlight.astro.build/) 0.39.x
