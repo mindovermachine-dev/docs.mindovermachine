@@ -193,6 +193,11 @@ export default defineConfig({
           translations: { da: "Om Os" },
           items: [
             {
+              label: "Join Us",
+              translations: { da: "Vær med" },
+              slug: "about/join",
+            },
+            {
               label: "Contact",
               translations: { da: "Kontakt" },
               slug: "about/contact",

@@ -3,7 +3,8 @@
   "skip": [
     "/node_modules/",
     "https://www\\.linkedin\\.com/in/lakruzz/?",
-    "https://slack\\.devopsdays\\.dk/?"
+    "https://slack\\.devopsdays\\.dk/?",
+    "https://app\\.slack\\.com/?"
   ],
   "silent": false,
   "concurrency": 10,
