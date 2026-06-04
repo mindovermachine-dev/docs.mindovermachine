@@ -1,34 +1,44 @@
 ---
 title: Mind over Machine
-description: Long-term Regenerative Systems Thinking for a better world
+description: Long-term Regenerative System Thinking for a Better World
 template: splash
 hero:
   tagline: The Foundation for Regenerative Software Development
   image:
-    alt: Mid above Machine logo
+    alt: Mid over Machine logo
     file: /src/assets/mom-coin.png
   actions:
-    - text: Start here
-      link: /en/vision/manifesto/
-      icon: right-arrow
+    - text: Documents
+      link: /vision/manifesto/
+      icon: open-book
+    - text: Visit our website
+      link: https://www.mindovermachine.dk
+      icon: external
+      variant: secondary
+      attrs:
+        target: _blank
     - text: Contact
-      link: /en/about/contact/
+      link: /about/contact/
       icon: email
       variant: minimal
 ---
 
 import { Card } from "@astrojs/starlight/components";
+import { LinkButton } from "@astrojs/starlight/components";
 
 <kicker>"_{frontmatter.description}_"</kicker>
 
-## A non-profit business foundation
+**Mind over Machine** is a non-profit business-driven foundation. A combined **think tank**, **laboratory** and **praxis community**.
 
-**Mind over Machine** is a non-profit business foundation. A combined think tank and laboratory.
+On these pages you can dive deep into the documents that form the basis for our work. Our vision, mission, and values, our governance and founding documents, and our initiatives and projects.
 
-Based on long-term systems thinking, we explore and test principles and techniques that can turn software into a regenerative tool.
+If you are looking for our official website, where you can follow our **publications**, read about our **services** and **events**
 
-In the Laboratory, we develop concrete Open Source software systems for our members and customers, which are based on these principles and techniques. We collect feedback and continuously adjust our assumptions, principles and techniques, which we share openly.
-
-### Our mission
-
-To search for and spread a new model for how software can contribute to a regenerative paradigm, which overall contributes _positively_ to people and the world.
+<LinkButton
+  href="https://www.mindovermachine.dk"
+  icon="external"
+  variant="secondary"
+  target="_blank"
+>
+  Visit our website
+</LinkButton>

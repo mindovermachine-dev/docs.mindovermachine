@@ -5,6 +5,10 @@ import { accessSync, constants, readFileSync } from "node:fs";
 import rehypeExternalLinks from "rehype-external-links";
 import { collectFrontmatterRedirects } from "./src/config/frontmatter-redirects.mjs";
 import { collectFrontmatterPdfPages } from "./src/config/frontmatter-pdf-pages.mjs";
+import {
+  giscusClientConfig,
+  giscusEnabledByDefault,
+} from "./src/config/giscus.mjs";
 
 const frontmatterRedirects = collectFrontmatterRedirects({
   docsRoot: new URL("./src/content/docs", import.meta.url),
@@ -86,6 +90,23 @@ const pdfPages = collectFrontmatterPdfPages({
 const pdfPageSet = new Set(pdfPages.map(normalizePathname));
 const footerVersionText = escapeHtml(getVersionFooterText());
 const pdfBrowserExecutablePath = getPdfBrowserExecutablePath();
+const hasRequiredGiscusConfig =
+  Boolean(giscusClientConfig.src) &&
+  Boolean(giscusClientConfig.attributes["data-repo"]);
+
+if (!hasRequiredGiscusConfig) {
+  throw new Error(
+    "Invalid Giscus configuration. Update src/config/giscus.mjs with a script URL and data-repo.",
+  );
+}
+
+// Giscus defaults and widget parameters are centrally managed in src/config/giscus.mjs.
+// Keep this false to make comments opt-in with `giscus: true` in page frontmatter.
+if (giscusEnabledByDefault) {
+  console.warn(
+    "Giscus is enabled by default. Set giscusEnabledByDefault to false in src/config/giscus.mjs to make comments opt-in.",
+  );
+}
 
 if (!pdfBrowserExecutablePath) {
   throw new Error(
@@ -144,10 +165,13 @@ export default defineConfig({
   },
   integrations: [
     starlight({
-      title: "Regenerative Software Foundation",
+      title: {
+        da: "Mind over Machine",
+        en: "Mind over machine",
+      },
       favicon: "/mom-favicon.ico",
       logo: {
-        src: "./src/assets/mom-logo-text-transparent.png",
+        src: "./src/assets/mom-logo.png",
       },
       components: {
         Footer: "./src/components/overrides/Footer.astro",
@@ -180,6 +204,11 @@ export default defineConfig({
               label: "The Manifesto",
               translations: { da: "Manifestet" },
               slug: "vision/manifesto",
+            },
+            {
+              label: "The Regenerative Charter",
+              translations: { da: "Det regenerative Charter" },
+              slug: "vision/charter",
             },
             {
               label: "The C.R.O.W.D. Values",
@@ -219,44 +248,14 @@ export default defineConfig({
               slug: "governance/three-pillars",
             },
             {
-              label: "The Regenerative Charter",
-              translations: { da: "Det regenerative Charter" },
-              slug: "governance/charter",
-            },
-            {
-              label: "Statutes",
-              translations: { da: "Vedtægter" },
-              slug: "governance/statutes",
-            },
-            {
-              label: "Rules of Procedure",
-              translations: { da: "Forretningsorden" },
-              slug: "governance/rules-of-procedure",
-            },
-            {
-              label: "Annual Cycle",
-              translations: { da: "Årshjul" },
-              slug: "governance/annual-cycle",
-            },
-            {
               label: "Initiative Circle",
               translations: { da: "Initiativkredsen" },
               slug: "governance/initiative-circle",
             },
             {
-              label: "Instructions",
-              translations: { da: "Instrukser" },
-              slug: "governance/instructions",
-            },
-            {
-              label: "Ethical Assessment",
-              translations: { da: "Årlig etisk gennemgang" },
-              slug: "governance/ethical-assessment",
-            },
-            {
-              label: "Business Operations",
-              translations: { da: "Erhvervsdrift og økonomisk grundlag" },
-              slug: "governance/business-plan",
+              label: "Registration & Founding Documents",
+              translations: { da: "Stiftelsesdokumenter" },
+              slug: "governance/registration",
             },
           ],
         },

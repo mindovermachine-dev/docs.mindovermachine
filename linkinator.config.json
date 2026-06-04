@@ -4,6 +4,7 @@
     "/node_modules/",
     "https://www\\.linkedin\\.com/in/lakruzz/?",
     "https://slack\\.devopsdays\\.dk/?",
+    "https://slack\\.mindovermachine\\.dk/?",
     "https://app\\.slack\\.com/?"
   ],
   "silent": false,
