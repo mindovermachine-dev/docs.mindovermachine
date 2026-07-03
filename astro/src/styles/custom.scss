@@ -4,6 +4,12 @@ kicker,
   font-weight: 700;
 }
 
+.table-no-border,
+.table-no-border th,
+.table-no-border td {
+  border: none !important;
+}
+
 fact,
 .fact {
   display: block;

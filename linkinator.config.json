@@ -9,6 +9,8 @@
   ],
   "silent": false,
   "concurrency": 10,
+  "retry": true,
+  "statusCode": ["429:warn"],
   "directoryListing": true,
   "requireHttps": "error",
   "checkCss": true
