@@ -12,6 +12,7 @@ export const collections = {
         "redirect-from": z.union([z.string(), z.array(z.string())]).optional(),
         giscus: z.boolean().optional(),
         pdf: z.boolean().optional(),
+        docLayout: z.enum(["default", "legalDoc"]).optional(),
       }),
     }),
   }),

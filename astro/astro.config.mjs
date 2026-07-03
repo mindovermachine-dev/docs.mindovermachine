@@ -174,9 +174,10 @@ export default defineConfig({
         src: "./src/assets/mom-logo.png",
       },
       components: {
+        ContentPanel: "./src/components/overrides/ContentPanel.astro",
         Footer: "./src/components/overrides/Footer.astro",
       },
-      customCss: ["./src/styles/custom.scss"],
+      customCss: ["./src/styles/custom.scss", "./src/styles/legal-doc.scss"],
       defaultLocale: "da",
       locales: {
         da: {
