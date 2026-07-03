@@ -68,8 +68,30 @@ inventory:
   - id: "install-browser"
     name: "Install Chromium"
     command: |
-      sudo apt-get update
-      sudo apt-get install -y chromium
+      attempts=5
+      attempt=1
+
+      while [ "$attempt" -le "$attempts" ]; do
+        echo "Chromium install attempt ${attempt}/${attempts}"
+
+        if sudo apt-get update -o Acquire::Retries=3 && \
+          sudo DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends chromium; then
+          if command -v chromium >/dev/null 2>&1 || command -v chromium-browser >/dev/null 2>&1; then
+            exit 0
+          fi
+
+          echo "Chromium package reported success, but no chromium executable was found"
+          exit 1
+        fi
+
+        if [ "$attempt" -eq "$attempts" ]; then
+          echo "Chromium installation failed after ${attempts} attempts"
+          exit 1
+        fi
+
+        sleep $((attempt * 10))
+        attempt=$((attempt + 1))
+      done
 
   - id: "gen-version"
     name: "Generate version.txt for local dev"

@@ -3,6 +3,8 @@ import starlight from "@astrojs/starlight";
 import pdf from "astro-pdf";
 import { accessSync, constants, readFileSync } from "node:fs";
 import rehypeExternalLinks from "rehype-external-links";
+import remarkAttrForMdx from "./src/config/remark-attr-for-mdx.mjs";
+import remarkLegalClauses from "./src/config/remark-legal-clauses.mjs";
 import { collectFrontmatterRedirects } from "./src/config/frontmatter-redirects.mjs";
 import { collectFrontmatterPdfPages } from "./src/config/frontmatter-pdf-pages.mjs";
 import {
@@ -146,6 +148,7 @@ const pdfIntegration =
 // https://astro.build/config
 export default defineConfig({
   markdown: {
+    remarkPlugins: [remarkAttrForMdx, remarkLegalClauses],
     rehypePlugins: [
       [
         rehypeExternalLinks,
@@ -174,9 +177,10 @@ export default defineConfig({
         src: "./src/assets/mom-logo.png",
       },
       components: {
+        ContentPanel: "./src/components/overrides/ContentPanel.astro",
         Footer: "./src/components/overrides/Footer.astro",
       },
-      customCss: ["./src/styles/custom.scss"],
+      customCss: ["./src/styles/custom.scss", "./src/styles/legal-doc.scss"],
       defaultLocale: "da",
       locales: {
         da: {
