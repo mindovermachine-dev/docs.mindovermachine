@@ -264,6 +264,27 @@ export default defineConfig({
           ],
         },
         {
+          label: "Personnel",
+          translations: { da: "Personale" },
+          items: [
+            {
+              label: "Director agreement",
+              translations: { da: "Direktøraftale" },
+              slug: "personnel/director-agreement",
+            },
+            {
+              label: "Employee agreement",
+              translations: { da: "Ansættelsesaftale" },
+              slug: "personnel/employee-agreement",
+            },
+            {
+              label: "Personnel Policy",
+              translations: { da: "Personalepolitik" },
+              slug: "personnel/personnel-policy",
+            },
+          ],
+        },
+        {
           label: "Methodology",
           translations: { da: "Metoder" },
           items: [

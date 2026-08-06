@@ -1,40 +1,40 @@
 ---
 title: Direktøraftale
+redirectFrom: /da/governance/director-agreement/
 description: Ansættelseskontrakt i indflydende stilling, uden for funktionærloven
-pdf: true
 docLayout: legalDoc
-agreement:
-  date: 1. juli 2026
+overload:
+  date: "[date]"
   place: København
   organization:
     name: Mind Over Machine, Fonden for fremme af regenerativ software
     referal: Fonden
-    id: zzzzzz
+    cvr: "46659287"
     address:
       street: ℅ Lars Kruse, Ernie Wilkins Vej 19, 4-1
       areacode: 2450 København SV
   director:
-    name: Lars Kruse
+    name: "[director.name]"
     referal: Direktøren
-    id: ddmmyy-nnnn
+    cpr: "[director.cpr]"
     address:
-      street: Ernie Wilkins Vej 19, 4-1
-      areacode: 2450 København SV
+      street: "[director.address.street]"
+      areacode: "[director.address.areacode]"
   employment:
     title: Administrerende Direktør (Chief Executive Officer/CEO)
-    startDate: 1. juli 2026
+    startDate: "[employment.startDate]"
     weeklyHours: 37
   compensation:
-    salaryAnnual: 480000
+    salaryAnnual: 0 #'[compensation.salaryAnnual]'
     pension:
       employer: 12%
       employee: 6%
     healthInsurance: true
 ---
 
-Direktør i {frontmatter.agreement.organization.name}<br/>
+Direktør i <span data-overload="organization.name">{frontmatter.overload.organization.name}</span><br/>
 
-Denne direktøraftale er d. {frontmatter.agreement.date} indgået mellem:
+Denne direktøraftale er d. <span data-overload="date">{frontmatter.overload.date}</span> indgået mellem:
 
 <table
   class="table-no-border"
@@ -46,37 +46,59 @@ Denne direktøraftale er d. {frontmatter.agreement.date} indgået mellem:
   </colgroup>
   <thead>
     <tr>
-      <th align="left">{frontmatter.agreement.organization.referal}</th>
-      <th align="left">{frontmatter.agreement.director.referal}</th>
+      <th align="left">
+        <span data-overload="organization.referal">
+          {frontmatter.overload.organization.referal}
+        </span>
+      </th>
+      <th align="left">
+        <span data-overload="director.referal">
+          {frontmatter.overload.director.referal}
+        </span>
+      </th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>
-        {frontmatter.agreement.organization.name}
+        <span data-overload="organization.name">
+          {frontmatter.overload.organization.name}
+        </span>
         <br />
-        {frontmatter.agreement.organization.address.street}
+        <span data-overload="organization.address.street">
+          {frontmatter.overload.organization.address.street}
+        </span>
         <br />
-        {frontmatter.agreement.organization.address.areacode}
+        <span data-overload="organization.address.areacode">
+          {frontmatter.overload.organization.address.areacode}
+        </span>
         <br />
-        CVR: {frontmatter.agreement.organization.id}
+        CVR: <span data-overload="organization.cvr">{frontmatter.overload.organization.cvr}</span>
+
       </td>
       <td>
-        {frontmatter.agreement.director.name}
+        <span data-overload="director.name">
+          {frontmatter.overload.director.name}
+        </span>
         <br />
-        {frontmatter.agreement.director.address.street}
+        <span data-overload="director.address.street">
+          {frontmatter.overload.director.address.street}
+        </span>
         <br />
-        {frontmatter.agreement.director.address.areacode}
+        <span data-overload="director.address.areacode">
+          {frontmatter.overload.director.address.areacode}
+        </span>
       </td>
     </tr>
+
   </tbody>
 </table>
 
 ## Tiltrædelsesdato og arbejdssted
 
-Direktøren ansættes med titel af {frontmatter.agreement.employment.title} og tiltræder stillingen med virkning fra {frontmatter.agreement.employment.startDate}.
+Direktøren ansættes med titel af <span data-overload="employment.title">{frontmatter.overload.employment.title}</span> og tiltræder stillingen med virkning fra <span data-overload="employment.startDate">{frontmatter.overload.employment.startDate}</span>.
 
-Arbejdstiden er {frontmatter.agreement.employment.weeklyHours} timer pr. uge i gennemsnit.
+Arbejdstiden er <span data-overload="employment.weeklyHours">{frontmatter.overload.employment.weeklyHours}</span> timer pr. uge i gennemsnit.
 
 Arbejdsstedet er fondens adresse, med mulighed for fjernarbejde efter nærmere aftale med Bestyrelsen.
 
@@ -98,19 +120,25 @@ Direktøren anmeldes til Erhvervsstyrelsen.
 
 ## Løn og lønforhandling
 
-Den årlige løn udgør ved ansættelsestidspunktet {new Intl.NumberFormat('da-DK', { minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(frontmatter.agreement.compensation.salaryAnnual)} kr. Lønnen udbetales månedsvis bagud og betales senest den sidste hverdag i måneden.
+Den årlige løn udgør ved ansættelsestidspunktet <span data-overload="compensation.salaryAnnual" data-overload-format="currency-dkk">{new Intl.NumberFormat('da-DK', { minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(frontmatter.overload.compensation.salaryAnnual)}</span> kr. Lønnen udbetales månedsvis bagud og betales senest den sidste hverdag i måneden.
 
 Det tilstræbes over tid, at lønnen udvikler sig mod et markedssvarende niveau for sammenlignelige stillinger under hensyn til fondens økonomiske bæreevne og bestyrelsens løbende vurdering.
 
 Lønnen optages til forhandling med bestyrelsesformanden én gang årligt i oktober måned med virkning fra oktober måned, første gang i oktober måned 2026\.
 
-## Pension
+## Pension og sundhedsforsikring
 
-Fonden indbetaler pension af samtlige løndele, jf. afsnittet om løn og lønforhandling. Pensionsbidraget udgør {frontmatter.agreement.compensation.pension.employer} fra fonden og {frontmatter.agreement.compensation.pension.employee} fra direktøren.
+Fonden indbetaler pension af samtlige løndele, jf. afsnittet om løn og lønforhandling. Pensionsbidraget udgør <span data-overload="compensation.pension.employer">{frontmatter.overload.compensation.pension.employer}</span> fra fonden og <span data-overload="compensation.pension.employee">{frontmatter.overload.compensation.pension.employee}</span> fra direktøren.
 
-<p class="legal-clause">
-  {frontmatter.agreement.compensation.healthInsurance
-    ? "Fonden stiller sundhedsforsikring til rådighed for direktøren på markedsmæssige vilkår i ansættelsesperioden."
+<p
+  class="legal-clause"
+  data-overload="compensation.healthInsurance"
+  data-overload-format="boolean-text"
+  data-overload-true="Fonden stiller sundhedsforsikring til rådighed for direktøren, på de vilkår som er omtalt i fondens personalepolitik."
+  data-overload-false="Der er ikke aftalt sundhedsforsikring i ansættelsesperioden."
+>
+  {frontmatter.overload.compensation.healthInsurance
+    ? "Fonden stiller sundhedsforsikring til rådighed for direktøren, på de vilkår som er omtalt i fondens personalepolitik."
     : "Der er ikke aftalt sundhedsforsikring i ansættelsesperioden."}
 </p>
 
@@ -118,7 +146,7 @@ Fonden indbetaler pension af samtlige løndele, jf. afsnittet om løn og lønfor
 
 Direktøren er forpligtet til at anvende sin fulde arbejdskraft og alle sine kundskaber i fondens tjeneste.
 
-Arbejdstiden er {frontmatter.agreement.employment.weeklyHours} timer pr. uge i gennemsnit.
+Arbejdstiden er <span data-overload="employment.weeklyHours">{frontmatter.overload.employment.weeklyHours}</span> timer pr. uge i gennemsnit.
 
 Direktøren er berettiget til at fortsætte i nuværende bestyrelses- og tillidshverv, ligesom direktøren er berettiget til at påtage sig yderligere tillids- og bestyrelseshverv, såvel lønnet som ulønnet, så længe sådanne hverv ikke varetages i organisationer eller virksomheder, hvis virke er i direkte eller indirekte modstrid med fondens formål og aktiviteter. Eventuelle honorarer tilfalder direktøren. Direktøren skal give bestyrelsen meddelelse om nye bestyrelses- og tillidshverv og have bestyrelsens samtykke, før sådanne hverv påbegyndes.
 
@@ -142,21 +170,15 @@ Ved fratræden opgøres optjent og ikke-afholdt ferie forholdsmæssigt. Ikke-afh
 
 ## Graviditet, barsel og adoption
 
-Direktøren er berettiget til orlov i forbindelse med graviditet, fødsel og adoption i overensstemmelse med barsellovens regler herom.
-
-Under barselsorlov har direktøren ret til fuld løn i den periode, hvor fonden kan modtage lønrefusion i henhold til barselsloven og barselsudligningsloven.
+Direktørens vilkår ved graviditet, barsel og adoption følger fondens til enhver tid gældende [personalepolitik](/da/personnel/personnel-policy).
 
 ## Sygdom og barns sygdom
 
-Direktøren har ret til løn under sygdom.
-
-Direktøren har ret til frihed med løn ved barns sygdom.
+Direktørens vilkår ved sygdom og barns sygdom følger fondens til enhver tid gældende [personalepolitik](/da/personnel/personnel-policy).
 
 ## Rejser og repræsentation
 
-Direktørens udgifter til arbejdsrelateret transport, overnatninger, repræsentation o. lign. dækkes af fonden efter regning.
-
-For kørsel i egen bil ydes godtgørelse efter den til enhver tid gældende højeste takst, jf. statens regler herom.
+Arbejdsrelaterede rejse- og repræsentationsudgifter håndteres efter fondens til enhver tid gældende [personalepolitik](/da/personnel/personnel-policy).
 
 ## Opfindelser og åbne rettigheder
 
@@ -189,7 +211,7 @@ Hvis bestyrelsen opsiger direktøren uden, at der foreligger væsentlig misligho
 
 Parterne kan som alternativ indgå en skriftlig fratrædelsesaftale med gensidigt aftalte vilkår om fratrædelsestidspunkt, eventuel fritstilling, kommunikation og økonomiske forhold.
 
-Bestyrelsen kan i opsigelsesperioden beslutte at fritstille direktøren helt eller delvist, hvis det findes hensigtsmæssigt af hensyn til fondens drift, samarbejde eller betryggende overdragelse af opgaver. Under fritstilling bevarer direktøren løn, pensionsbidrag, sundhedsforsikring og øvrige aftalte løbende ydelser i fritstillingsperioden, medmindre andet følger af en skriftlig fratrædelsesaftale.
+Bestyrelsen kan i opsigelsesperioden beslutte at fritstille direktøren helt eller delvist, hvis det findes hensigtsmæssigt af hensyn til fondens drift, samarbejde eller betryggende overdragelse af opgaver. Under fritstilling bevarer direktøren løn og øvrige aftalte løbende ydelser i fritstillingsperioden, herunder eventuelle ydelser efter personalepolitikken, medmindre andet følger af en skriftlig fratrædelsesaftale.
 
 I opsigelsesperioden skal direktøren loyalt medvirke til overdragelse af opgaver, viden, relationer, dokumentation, adgange og igangværende processer. Parterne skal så tidligt som muligt aftale en praktisk plan for overdragelse, kommunikation, aflevering af udstyr og deaktivering eller ændring af adgange.
 
@@ -231,11 +253,13 @@ Parterne er enige om, at funktionærloven og ferieloven som udgangspunkt ikke fi
   <tbody>
     <tr>
       <td>
-        {frontmatter.agreement.place}, {frontmatter.agreement.date}
+        <span data-overload="place">{frontmatter.overload.place}</span>,{" "}
+        <span data-overload="date">{frontmatter.overload.date}</span>
       </td>
       <td>&nbsp;</td>
       <td>
-        {frontmatter.agreement.place}, {frontmatter.agreement.date}
+        <span data-overload="place">{frontmatter.overload.place}</span>,{" "}
+        <span data-overload="date">{frontmatter.overload.date}</span>
       </td>
     </tr>
     <tr style="height: 4em;">
@@ -245,13 +269,21 @@ Parterne er enige om, at funktionærloven og ferieloven som udgangspunkt ikke fi
     </tr>
     <tr>
       <td>
-        <b>{frontmatter.agreement.organization.referal}</b>
+        <b>
+          <span data-overload="organization.referal">
+            {frontmatter.overload.organization.referal}
+          </span>
+        </b>
         <br />
         Bestyrelsesformand
       </td>
       <td>&nbsp;</td>
       <td>
-        <b>{frontmatter.agreement.director.referal}</b>
+        <b>
+          <span data-overload="director.referal">
+            {frontmatter.overload.director.referal}
+          </span>
+        </b>
       </td>
     </tr>
   </tbody>
