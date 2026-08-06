@@ -2,7 +2,6 @@
 title: Ansættelsesaftale
 description: Ansættelseskontrakt for medarbejder under funktionærloven
 redirectFrom: /da/governance/employee-agreement/
-pdf: true
 docLayout: legalDoc
 overload:
   date: "[date]"
@@ -92,10 +91,6 @@ Denne ansættelsesaftale er d. <span data-overload="date">{frontmatter.overload.
           {frontmatter.overload.employee.address.areacode}
         </span>
         <br />
-        CPR:{" "}
-        <span data-overload="employee.id">
-          {frontmatter.overload.employee.id}
-        </span>
       </td>
     </tr>
   </tbody>
@@ -194,6 +189,8 @@ Tvister søges først løst i dialog mellem parterne. Kan tvisten ikke løses, a
             {frontmatter.overload.organization.referal}
           </span>
         </b>
+        <br />
+        Direktør
       </td>
       <td>&nbsp;</td>
       <td>
@@ -203,6 +200,22 @@ Tvister søges først løst i dialog mellem parterne. Kan tvisten ikke løses, a
           </span>
         </b>
       </td>
+    </tr>
+    <tr style="height: 4em;">
+      <td style="border-bottom: 1px solid black;">&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>
+        <b>
+          <span data-overload="organization.referal">
+            {frontmatter.overload.organization.referal}
+          </span>
+        </b>
+        <br />
+        Bestyrelsesformand
+      </td>
+      <td>&nbsp;</td>
     </tr>
   </tbody>
 </table>
