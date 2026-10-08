@@ -5,6 +5,8 @@ import { accessSync, constants, readFileSync } from "node:fs";
 import rehypeExternalLinks from "rehype-external-links";
 import remarkAttrForMdx from "./src/config/remark-attr-for-mdx.mjs";
 import remarkLegalClauses from "./src/config/remark-legal-clauses.mjs";
+import { sidebar } from "./src/config/sidebar.mjs";
+import remarkFactDirective from "./src/config/remark-fact-directive.mjs";
 import { collectFrontmatterRedirects } from "./src/config/frontmatter-redirects.mjs";
 import { collectFrontmatterPdfPages } from "./src/config/frontmatter-pdf-pages.mjs";
 import {
@@ -147,8 +149,9 @@ const pdfIntegration =
 
 // https://astro.build/config
 export default defineConfig({
+  site: "https://docs.mindovermachine.dk",
   markdown: {
-    remarkPlugins: [remarkAttrForMdx, remarkLegalClauses],
+    remarkPlugins: [remarkAttrForMdx, remarkLegalClauses, remarkFactDirective],
     rehypePlugins: [
       [
         rehypeExternalLinks,
@@ -180,7 +183,11 @@ export default defineConfig({
         ContentPanel: "./src/components/overrides/ContentPanel.astro",
         Footer: "./src/components/overrides/Footer.astro",
       },
-      customCss: ["./src/styles/custom.scss", "./src/styles/legal-doc.scss"],
+      customCss: [
+        "./src/styles/custom.scss",
+        "./src/styles/legal-doc.scss",
+        "./src/styles/mom-fact.scss",
+      ],
       defaultLocale: "da",
       locales: {
         da: {
@@ -199,123 +206,7 @@ export default defineConfig({
           href: "https://github.com/mindovermachine-dev",
         },
       ],
-      sidebar: [
-        {
-          label: "Vision & Mission",
-          translations: { da: "Vision & Mission" },
-          items: [
-            {
-              label: "The Manifesto",
-              translations: { da: "Manifestet" },
-              slug: "vision/manifesto",
-            },
-            {
-              label: "The Regenerative Charter",
-              translations: { da: "Det regenerative Charter" },
-              slug: "vision/charter",
-            },
-            {
-              label: "The C.R.O.W.D. Values",
-              translations: { da: "C.R.O.W.D. Værdierne" },
-              slug: "vision/crowd-values",
-            },
-          ],
-        },
-        {
-          label: "About Us",
-          translations: { da: "Om Os" },
-          items: [
-            {
-              label: "Join Us",
-              translations: { da: "Vær med" },
-              slug: "about/join",
-            },
-            {
-              label: "Contact",
-              translations: { da: "Kontakt" },
-              slug: "about/contact",
-            },
-            {
-              label: "Founder's Story",
-              translations: { da: "Founder's Story" },
-              slug: "about/founder-story",
-            },
-          ],
-        },
-        {
-          label: "Organization",
-          translations: { da: "Organisation" },
-          items: [
-            {
-              label: "The Three Pillars",
-              translations: { da: "De tre Søjler" },
-              slug: "governance/three-pillars",
-            },
-            {
-              label: "Initiative Circle",
-              translations: { da: "Initiativkredsen" },
-              slug: "governance/initiative-circle",
-            },
-            {
-              label: "Registration & Founding Documents",
-              translations: { da: "Stiftelsesdokumenter" },
-              slug: "governance/registration",
-            },
-          ],
-        },
-        {
-          label: "Personnel",
-          translations: { da: "Personale" },
-          items: [
-            {
-              label: "Director agreement",
-              translations: { da: "Direktøraftale" },
-              slug: "personnel/director-agreement",
-            },
-            {
-              label: "Employee agreement",
-              translations: { da: "Ansættelsesaftale" },
-              slug: "personnel/employee-agreement",
-            },
-            {
-              label: "Personnel Policy",
-              translations: { da: "Personalepolitik" },
-              slug: "personnel/personnel-policy",
-            },
-          ],
-        },
-        {
-          label: "Methodology",
-          translations: { da: "Metoder" },
-          items: [
-            {
-              label: "Collaboration",
-              translations: { da: "Samarbejde" },
-              slug: "methodology/collaboration",
-            },
-            {
-              label: "How We Work",
-              translations: { da: "Sådan arbejder vi" },
-              slug: "methodology/how-we-work",
-            },
-            //            {
-            //              label: "The Toyota Way",
-            //              translations: { da: "Toyota-vejen" },
-            //              slug: "methodology/toyota-way",
-            //            },
-            //            {
-            //              label: "Participatory Design",
-            //              translations: { da: "Deltagende Design" },
-            //              slug: "methodology/participatory-design",
-            //            },
-            //            {
-            //              label: "Developer Experience (DevX)",
-            //              translations: { da: "Udvikler Erfaring (DevX)" },
-            //              slug: "methodology/devx",
-            //            },
-          ],
-        },
-      ],
+      sidebar,
     }),
     ...(pdfIntegration ? [pdfIntegration] : []),
   ],

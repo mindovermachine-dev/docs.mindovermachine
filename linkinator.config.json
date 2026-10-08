@@ -6,7 +6,8 @@
     "https://slack\\.devopsdays\\.dk/?",
     "https://slack\\.mindovermachine\\.dk/?",
     "https://app\\.slack\\.com/?",
-    "https://devopsdays-dk\\.slack\\.com/?"
+    "https://devopsdays-dk\\.slack\\.com/?",
+    "https://(en|da)\\.wikipedia\\.org/wiki/?"
   ],
   "silent": false,
   "concurrency": 10,

@@ -3,6 +3,9 @@
     {
       "path": ".",
     },
+    {
+      "path": "../../localhome/GitHub/mindovermachine-dev/mom-home",
+    },
   ],
   "settings": {
     "chat.tools.terminal.autoApprove": {

@@ -1,0 +1,193 @@
+---
+title: Tilbud
+description: Etablering, migrering og drift af Matrix (Synapse & Element) for Mesh
+proposal:
+  date: 6. oktober 2026
+  valid_until: 6. november 2026
+  proposer: Mind over Machine
+  receiver: Mesh
+  contact:
+    name: Lars Kruse
+    email: lakruzz@mindovermachine.dk
+---
+
+import PageUrl from "~/components/PageUrl.astro";
+
+## {frontmatter.description}
+
+| Dato                        | Gyldig indtil                      | Fra                             | Til                             | Kontakt                                                                      |
+| :-------------------------- | :--------------------------------- | :------------------------------ | :------------------------------ | :--------------------------------------------------------------------------- |
+| {frontmatter.proposal.date} | {frontmatter.proposal.valid_until} | {frontmatter.proposal.proposer} | {frontmatter.proposal.receiver} | {frontmatter.proposal.contact.name}<br/>{frontmatter.proposal.contact.email} |
+
+**URL til denne side:**<br/>
+
+<PageUrl />
+
+## Executive summary
+
+Mesh bruger i dag to Slack-workspaces (community på ca. 6.000 konti og administration på ca. 100 brugere), hvilket giver tab af historik, per-bruger-omkostninger og to adskilte konti. Vi foreslår at erstatte dem med én open source-platform baseret på Matrix, Synapse og Element, hosted på servere i EU.
+
+- **Fordele:** Fuld kontrol over data og historik, ingen per-bruger-omkostninger og én samlet platform for både community og personale.
+- **Etablering (engangs):** Tre faser: server og infrastruktur (MVP), test af bridges og extensions, samt migrering og onboarding. I eksemplet estimeret til 95 timer, **152.000 DKK** ekskl. moms.
+- **Drift (månedlig):** Fast SLA med opdateringer, monitorering, backup og support i dagtimerne, i eksemplet: **7.680 – 8.080 DKK/md.** ekskl. moms, uafhængigt af antal brugere.
+- **Fast budget:** Planen prioriteres sammen efter MoSCoW, og alt "Must have" leveres inden for det aftalte budget.
+
+## Baggrund og Formål
+
+Mesh driver et dynamisk og voksende kontorfællesskab med lokationer i både København og Oslo. Kommunikationen i fællesskabet og i administrationen er i dag opdelt i to adskilte Slack-workspaces:
+
+### Medlem community
+
+ca. 6.000 oprettede konti, anslået ca \~1.000 aktive brugere. Kører på en gratis Slack-løsning. Løsningen er begrænset af Slacks 3-måneders historik, hvilket medfører tab af værdifuld viden, dialog og dokumentation.
+
+### Administration og personale
+
+\~100+ brugere: Kører på en betalt Slack-løsning (antageligt Pro) med løbende licensomkostninger per bruger.
+
+###
+
+### Formålet med projektet
+
+:::fact[Hvorfor Matrix, Synapse og Element? | right | medium]
+
+**Matrix** en internettets _Open Standard_ protokol for beskeder (grupper+chat)
+
+**Synapse** er en Open Source server, som implementerer _back-end_ baseret på Matrix protokollen
+
+**Element** er Open Source _frontend_ til infrastruktur baseret på Matrix protokollen.
+
+**Tilsammen** danner de features og brugeroplevelse som er sammenlignelige med eksempelvis Slack og Discord.
+
+Se "[New To Matrix?](https://www.mindovermachine.dk/da/writings/new-to-matrix/)"
+
+:::
+
+Formålet med dette projekt er at erstatte Slack med en fremtidssikret, open source-baseret kommunikationsplatform baseret på Matrix, Synapse og Element-klienter.
+
+Med den nye løsning opnår Mesh:
+
+- **Full-featured oplevelse** Den samme brugeroplevelse for både ansatte og community.
+- **Fuld kontrol over data og historik:** Uforbeholden digital suverænitet. Fuld beskedhistorik for både medlemmer og administration uden restriktioner. Data på egne servere hosted i EU af EU registrerede virksomheder.
+- **Markante besparelser:** Ingen per-bruger omkostninger, ingen uforudsete omkostningsstigninger, når antallet af medlemmer eller personale vokser
+- **Serviceaftalen (SLA)** Driftsomkostninger ligger i en efterfølgende SLA, som ikke tæller antal brugere på platformen.
+- **Én samlet platform:** Opdelingen mellem community og personal sker gennem adgange og åbne/lukkede rum — ikke gennem opdelingen i separate afkoblede instanser. Ansatte slipper for at have to forskellige konti.
+- **En del af noget større**. Matrix protokollen er federeret, alle brugere kan etablere dialog med alle brugere fra alle servere. Ligesom email.
+- **Åben standard og fleksibilitet:** Mulighed for 100% Open Source integrationer _(bridges)_ og udvidelser _(extensions)_ tilpasset jeres specifikke behov.
+- **Integration til eksisterende systemer** Giver mulighed for at integrere forskellige andre systemer fra jeres eksisterende infrastruktur ind på Synapse platformen (events, frokostordning, lokalbooking, automatisk on- og off-boarding af medlemmer mm)
+- **Udvikling**: I kan drømme jer til alt. Synapse understøtter webhooks, hvilket betyder at _alt_ med et API kan integreres. I princippet kan man udbygge Synapse på samme vis som Zapier eller andre IF-This-Then-That services.
+
+## Projektets Omfang og Faser
+
+Projektet opdeles i to hoveddele: **Etablerings- og migreringsprojektet** (engangsydelse) og **Den løbende drift** **\- SLA** (månedlig ydelse).
+
+### FASE 1: Serveretablering & Infrastruktur (MVP)
+
+Vi opsætter og konfigurerer en dedikeret Matrix Synapse-server tilpasset Mesh’s samlede brugerantal med fokus på høj tilgængelighed og performance.
+
+:::fact[Minimum Viable Product | right | medium]
+Eric Ries skriver i “The Lean Startup”:
+
+> _"The goal of the MVP is to begin the process of learning"_
+
+Altså: det mindste produkt vi kan forestille os, som det giver mening at onboarde brugere på. Så vi kan modtage deres feedback.
+:::
+
+- Opsætning af Synapse backend på sikret containerbaseret Linux-server infrastruktur ved en 100% Europæisk cloud provider. Eksempelvis Computerome (DK) eller Hetzner (D).
+- Opsætning af Element webserver, ligeledes på sikret containerbaseret Linux-server infrastruktur (optional — kan styrke jeres brand/identitet og brugeroplevelsen, men er strengt taget ikke nødvendig i en MVP).
+- Konfiguration af domæne, SSL-certifikater.
+- Etablering af automatisk backup.
+- Etablering og test af backup \-\> restore procedure.
+- Etablering af Software procedure for opdatering (SDLC)
+- Etablering af NIS2 kompatibel sikkerhedsprocedurer.
+- Etablering af kontinuerlig serverlog scans.
+
+### FASE 2: Afprøvning og evaluering af _Bridges_ & _Extensions_
+
+Fase 1 udgør et _Minimal Viable Product (MVP)._ I den efterfølgende fase vil det være muligt at on-boarde de første _testbrugere_, for eksempel en delmængde af brugerne fra administrationen. I denne fase er formålet at konfigurere brugeroplevelsen og features til Mesh’s konkrete behov og smag.
+
+Sammen med testbrugerne udforsker vi det eksisterende open source-økosystem omkring Matrix/Synapse/Element for at udforske om der er noget som opfylder eksisterende eller nye behov og ønsker, som er tilgængelige som lavthængende frugter. Vi tester og evaluerer de mest relevante.
+
+Nedenstående er blot eksempler og forslag, den konkrete liste af udvidelser (_bridges_ og _extensions)_ som vi udforsker og tester er baseret på Mesh’s konkrete behov.
+
+- **Slack Bridge (Matrix-Appservice-Slack):**<br/>
+  Test af muligheden for direkte synkronisering i en overgangsperiode, så brugere gradvist kan flyttes over (kun relevant for den betalte slack).
+
+- **SSO / Single Sign-On (OIDC/OAuth2):**<br/>
+  Integration til Mesh’s eksisterende medlems- eller medarbejdersystem for automatisk oprettelse og deaktivering af brugere.
+
+- **Moderationsværktøjer (fx Mjolnir):**<br/>
+  Værktøjer til administrationen til at håndtere og moderere et stort community på anslået 1.000+ brugere (spam-beskyttelse, brugerstyring).
+
+- **Widgets & Integrationer:**<br/>
+  Test af integrerede kalendere, videomøder og custom dashboards i Element.
+
+- **Visuel identitet:**<br/>
+  Konfiguration af Element (Web) tilpasset Mesh’s visuelle identitet ift. branding.
+
+### FASE 3: Klientkonfiguration, Migrering og Dokumentation
+
+Efter fase to er platformen klar til at on-boarde brugere og overtage funktioner fra den tidligere platform. Formålet med fasen er at lukke de eksisterende platforme ned (begge nuværende Slack).
+
+- Udarbejdelse af migreringsstrategi for community brugere og personale medarbejdere.
+- Rådgivning om og eksekvering af eksport/import af relevante data fra eksisterende Slack-workspaces.
+- Onboarding-guide til fællesskabets medlemmer i København og Oslo.
+- Brugervejledninger til administrative medarbejdere om rumstyring, rettigheder og moderering.
+- Teknisk dokumentation af opsætningen.
+
+## Løbende Drift & Vedligeholdelse (Driftsaftale)
+
+For at sikre stabil, sikker og hurtig drift af Synapse-serveren tilbyder vi en fast driftsaftale.
+
+### Hvad indeholder driftsaftalen?
+
+- **Server infrastruktur:** Cloud omkostninger for opretholdelse af korrekt dimensioneret servermiljø.
+- **Server- og applikationsvedligeholdelse:** Løbende opdatering af Synapse, Element, bridges, extensions, operativsystem og sikkerhedspatches.
+- **Proaktiv monitorering:** Overvågning af oppetid, CPU/RAM-forbrug og diskplads.
+- **Backups:** Løbende backup af databasesystemer og konfigurationer.
+- **Sikkerhed:** Løbende overvågning af sikkerhedstrusler i Matrix-økosystemet.
+- **Teknisk Support (alm. arbejdstid):** Hjælp til systemadministratorer hos Mesh ved tekniske udfordringer via e-mail/ticketsystem.
+- **Fordelagtig timepris** på ekstraordinær support og udviklingsprojekter. For eksempel udvikling og opsætning af _bridges_ og _extensions_.
+
+### Afgrænsning af Drift
+
+- **Supporttid**: Mandag – fredag kl. 09:00 – 15:00.
+- **Uden for aftalen**: Aftalen indeholder ikke 24/7 vagtordning eller udkald. Hændelser opstået uden for normal arbejdstid håndteres førstkommende arbejdsdag, medmindre andet særskilt aftales.
+
+:::fact[MoSCoW prioritering<br/> = fast budget | right | medium]
+**Must have** — det som _skal_ leveres for at systemet kan modtage brugere.
+
+**Should have** — det som _bør_ leveres, men ikke nødvendigvis i selve etableringsfasen.
+
+**Could have** — det som _kan_ leveres (_nice-to-have_).
+
+**Won't have** — det som bevidst fravælges.
+:::
+
+### Tidsplan og Estimater
+
+Dette afsnit er ikke et konkret fastpris tilbud, men et eksempel på en realistisk plan og pris. Den konkrete projektplan vil vi udarbejde sammen med jer, hvis I accepterer vores tilbud om samarbejde.
+
+I en sådan plan vil vi sammen foretage konkrete prioriteringer (MoSCoW), således at I reelt _vil_ få mulighed for at arbejde indenfor et fast budget. Vi vil som minimum levere alt “Must Have” indenfor det budget vi aftaler, i den plan vi laver sammen.
+
+#### Engangsinvestering (Projektfaser \- tidsangivelserne er eksempler)
+
+| Fase        | Beskrivelse                                           | Estimerede timer | Pris (excl. moms) |
+| :---------- | :---------------------------------------------------- | :--------------- | :---------------- |
+| Fase&nbsp;1 | Serveretablering, konfiguration & infrastruktur (MVP) | 30 timer         | 48.000 DKK        |
+| Fase&nbsp;2 | Test og evaluering af Bridges & Extensions            | 35 timer         | 56.000 DKK        |
+| Fase&nbsp;3 | Migrering, onboarding & dokumentation                 | 30 timer         | 48.000 DKK        |
+| I alt       | Samlet engangsomkostning                              | 95 timer         | 152.000 DKK       |
+
+Baseret på en standard konsulent timesats på 1.600 DKK/time ekskl. moms.
+
+### Service Level Agreement
+
+En SLA kan sammensættes på forskellig vis. Nedenstående er et realistisk eksempel. Men en SLA kan også indeholde en _retainer_ på et fast aftalt antal timer hver måned, dedikeret til udvikling og brugersupport. Den slags timer kan, afhængigt af aftalens størrelse, tilbydes til meget fordelagtige priser, med helt op til 49% rabat på standard timeprisen.
+
+#### Løbende Månedlige Omkostninger (Drift & SLA)
+
+| Ydelse                    | Beskrivelse                                                        | Månedlig pris (excl. moms) |
+| :------------------------ | :----------------------------------------------------------------- | :------------------------- |
+| Serverinfrastruktur       | Dedicated EU Cloud/Server (tilpasset \~1.000 aktive brugere)       | 800 \- 1.200 DKK/md.       |
+| Systemdrift & Vedligehold | Opdateringer, overvågning, backups & support (man-fre 09:00-15:00) | 6.880 DKK/md.              |
+| Samlet drift              | Forventet samlet månedlig drift                                    | 7.680 \- 8.080 DKK/md.     |
