@@ -21,4 +21,10 @@
     "MD051": false,
     "MD060": false,
   },
+  "overrides": [
+    {
+      "files": ["astro/src/content/docs/da/proposals/mom-foss-dev-stack.mdx"],
+      "config": { "MD025": false },
+    },
+  ],
 }
